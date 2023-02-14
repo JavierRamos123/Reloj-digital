@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +8,25 @@
     <title>Reloj Digital</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+    <form action="" class="color-picker">
+        <fieldset>
+            <legend class="visually-hidden">Elige un tema</legend>
+
+            <label for="tema" class="visually-hidden">CLARO</label>
+            <input type="radio" name="tema" id="claro" checked>
+
+            <label for="tema" class="visually-hidden">OSCURO</label>
+            <input type="radio" name="tema" id="oscuro" checked>
+
+            <label for="tema" class="visually-hidden">AZUL</label>
+            <input type="radio" name="tema" id="azul" checked>
+
+            <label for="tema" class="visually-hidden">VERDE</label>
+            <input type="radio" name="tema" id="verde" checked>
+        </fieldset>
+    </form>
     <section>
         <div class="reloj">
             <div class="container">
@@ -21,11 +40,10 @@
         </div>
     </section>
     <script>
-        function reloj(){
+        function reloj() {
             let horas = document.getElementById("hora");
             let minutos = document.getElementById("minuto");
             let segundos = document.getElementById("segundo");
-            let ampm = document.getElementById("am-pm");
 
             let h = new Date().getHours();
             let m = new Date().getMinutes();
@@ -33,7 +51,7 @@
             var am = 'AM';
 
             //Cambiar el formato de 24 horas al formato de 12 con el indicador de AM y PM
-            if (h > 12){
+            if (h > 12) {
                 h = h - 12;
                 var am = 'PM';
             }
@@ -52,4 +70,5 @@
         var interval = setInterval(reloj, 1000);
     </script>
 </body>
+
 </html>
