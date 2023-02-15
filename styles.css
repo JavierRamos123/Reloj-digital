@@ -169,6 +169,7 @@ section::after {
   background-color: var(--radio-color);
 }
 
+.claro,
 :root:has(#claro:checked) {
   --clr-body-bg: rgb(217, 211, 219);
   --clr-left-square: linear-gradient(
@@ -187,7 +188,7 @@ section::after {
 }
 
 
-
+.oscuro,
 :root:has(#oscuro:checked) {
   --clr-body-bg: rgb(53, 39, 39);
   --clr-left-square: linear-gradient(rgb(231, 216, 82), rgb(173, 95, 6));
@@ -202,6 +203,7 @@ section::after {
   --font-family: consolas;
 }
 
+.azul,
 :root:has(#azul:checked) {
   --clr-body-bg: rgb(42, 39, 184);
   --clr-left-square: linear-gradient(rgb(184, 204, 3), rgb(0, 131, 0));
@@ -219,6 +221,7 @@ section::after {
   --font-family: Helvetica;
 }
 
+.verde,
 :root:has(#verde:checked) {
   --clr-body-bg: rgb(164, 235, 150);
   --clr-left-square: linear-gradient(rgb(235, 199, 38), rgb(207, 57, 30));
