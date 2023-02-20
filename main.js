@@ -30,7 +30,19 @@ function reloj() {
 
 var interval = setInterval(reloj, 1000);
 
+const modal = document.getElementById("modal");
+const section = document.getElementById("seccion");
 
+
+function abrirModal(){
+    modal.style.display = "block";
+    section.style.display = "none";
+}
+
+function cerrarModal(){
+    modal.style.display = "none";
+    section.style.display = "flex";
+}
 
 
 //guardar tema
@@ -43,7 +55,7 @@ const guardarTema = function(tema){
 //respaldo para :has() support
 const setTema = function(tema){
     document.documentElement.className = tema;
-}
+};
 
 
 const obtenerTema = function(){
@@ -64,3 +76,4 @@ colorTemas.forEach(temaOpcion => {
 });
 
 document.onload = obtenerTema();
+

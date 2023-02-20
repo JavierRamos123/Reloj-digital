@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reloj Digital</title>
     <link rel="stylesheet" href="styles.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 </head>
 
 <body>
@@ -27,7 +28,8 @@
             <input type="radio" name="tema" id="verde" checked>
         </fieldset>
     </form>
-    <section>
+
+    <section id ="seccion">
         <div class="reloj">
             <div class="container">
                 <h2 id="hora">00</h2>
@@ -38,8 +40,33 @@
                 <span id="am-pm">AM</span>
             </div>
         </div>
+        <div class="boton-modal">
+            <button class="boton abrir-modal" id="boton1" onclick="abrirModal()"><i class='fas fa-bell'></i></button>
+        </div>
     </section>
-    <script src="./main.js"></script>
+
+    <div class="modal" id="modal">
+        <h2>Pon la alarmas</h2>
+        <form class="alarma-hora">
+            <label for="hour">Hora:</label>
+            <input type="text" name="hour" id="hour" min="0" max="23" value="0" pattern="[0-9]+">
+            <label for="minute">Minuto:</label>
+            <input type="text" name="minute" id="munite" min="0" max="59" value="0" pattern="[0-9]+">
+            <label for="second">Segundo:</label>
+            <input type="text" name="second" id="second" min="0" max="59" value="0" pattern="[0-9]+">
+            <div class="boton-alarma">
+                <input type="button" class="btn-alarm" value="Añadir Alarma">
+            </div>
+        </form>
+        <button class="cerrar-modal" id="cerrar-modal" onclick="cerrarModal()"><i class="fa fa-times" aria-hidden="true"></i></button>
+    </div>
+    
+
+        <div class="alarm-list-container">
+            <i class='fas fa-bell'></i>
+        </div>
+
+    <script src="main.js"></script>
 </body>
 
 </html>

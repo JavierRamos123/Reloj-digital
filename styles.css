@@ -10,6 +10,8 @@
   --clr-box-shadow: rgba(245, 90, 90, 0.2);
   --clr-fieldset1: rgba(255, 201, 22, 0.651);
   --font-family: consolas;
+  --clr-bottom-button: rgba(177, 140, 19, 0.651);
+  --clr-button-hover: rgba(247, 215, 111, 0.651);
 }
 
 * {
@@ -24,7 +26,7 @@ body {
 }
 
 section {
-  position: relative;
+  position: absolute;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -73,7 +75,7 @@ section::after {
   height: 250px;
   background: rgb(71, 60, 60, 0.05);
   box-shadow: 0 15px 25px var(--clr-box-shadow);
-  z-index: 1000;
+  z-index: 100;
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(20px);
@@ -185,8 +187,9 @@ section::after {
   --clr-box-shadow: rgba(197, 64, 250, 0.288);
   --clr-fieldset1: rgba(196, 93, 255, 0.705);
   --font-family: consolas;
+  --clr-bottom-button: rgba(110, 25, 160, 0.705);
+  --clr-button-hover: rgba(205, 119, 255, 0.705);
 }
-
 
 .oscuro,
 :root:has(#oscuro:checked) {
@@ -201,6 +204,8 @@ section::after {
   --clr-box-shadow: rgba(245, 90, 90, 0.137);
   --clr-fieldset1: rgb(224, 194, 24);
   --font-family: consolas;
+  --clr-bottom-button: rgb(161, 140, 18);
+  --clr-button-hover: rgb(255, 221, 31);
 }
 
 .azul,
@@ -219,6 +224,8 @@ section::after {
   --clr-box-shadow: rgba(193, 194, 253, 0.116);
   --clr-fieldset1: rgba(236, 117, 38, 0.808);
   --font-family: Helvetica;
+  --clr-bottom-button: rgba(146, 74, 26, 0.808);
+  --clr-button-hover: rgba(255, 135, 56, 0.808);
 }
 
 .verde,
@@ -234,5 +241,148 @@ section::after {
   --clr-box-shadow: rgba(12, 184, 49, 0.308);
   --clr-fieldset1: rgba(156, 100, 202, 0.822);
   --font-family: Helvetica;
+  --clr-bottom-button: rgba(88, 25, 139, 0.822);
+  --clr-button-hover: rgba(182, 118, 235, 0.822);
 }
 
+.boton-modal {
+  top: 11em;
+  right: 4.35em;
+  position: relative;
+}
+
+.abrir-modal {
+  z-index: 9999;
+  background-color: var(--clr-fieldset1);
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 7px var(--clr-bottom-button);
+  border: 0.1px solid var(--clr-bottom-button);
+}
+
+.abrir-modal:hover {
+  background-color: var(--clr-button-hover);
+}
+
+.abrir-modal:active {
+  background-color: var(--clr-fieldset1);
+  box-shadow: 0 5px var(--clr-bottom-button);
+  transform: translateY(4px);
+}
+
+.alarm-list-container {
+  box-sizing: unset;
+  z-index: 100;
+  display: flex;
+  position: fixed;
+  background: var(--clr-fieldset1);
+  width: 12em;
+  height: 17em;
+  padding: 10px 10px;
+  margin-inline: 85% auto;
+  bottom: -32vh;
+  border-radius: 1rem;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.alarm-list-container::after {
+  content: "Alarmas";
+  /* display: flex; */
+  position: relative;
+  background: var(--clr-fieldset1);
+  /* width: 285em; */
+  /* height: 17em; */
+  padding: 10px 10px;
+  margin-inline: 50px auto;
+  bottom: 48px;
+  border-radius: 1rem 1rem 0 0;
+  justify-content: center;
+}
+
+.alarm-list-container:hover {
+  transform: translateY(-300px);
+}
+
+.modal {
+  display: none;
+  padding: 1em;
+  position: fixed;
+  z-index: 101;
+  top: 45%;
+  border: 1px solid rgba(0, 0, 0, 0.151);
+  left: 30%;
+  max-width: unset;
+  width: 37.5%;
+  height: 20%;
+  border-radius: 10px;
+  background: var(--clr-fieldset1);
+  box-shadow: 0 15px 25px var(--clr-box-shadow);
+  backdrop-filter: blur(20px);
+}
+
+.alarma-hora {
+  margin-top: 2em;
+}
+
+.cerrar-modal {
+  position: absolute;
+  right: 5%;
+  bottom: 10%;
+  background-color: rgb(255, 50, 50);
+  padding: 5px 15px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 7px rgb(66, 11, 11);
+  border: 0.1px solid rgb(70, 2, 2);
+}
+
+.cerrar-modal:hover {
+  background-color: rgb(255, 110, 110);
+}
+
+.cerrar-modal:active {
+  background-color: rgb(255, 50, 50);
+  box-shadow: 0 5px rgb(66, 11, 11);
+  transform: translateY(4px);
+}
+
+.btn-alarm {
+  position: absolute;
+  left: 5%;
+  bottom: 10%;
+  background-color: var(--clr-fieldset1);
+  padding: 5px 15px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 7px var(--clr-bottom-button);
+  border: 0.1px solid var(--clr-bottom-button);
+}
+
+.alarma-hora input[type="text"] {
+  background: var(--clr-bottom-button);
+  border: none;
+  padding: 4px 6px;
+  border-radius: 5px;
+  width: 30px;
+}
+
+.alarma-hora label{
+    font-weight: 600;
+}
